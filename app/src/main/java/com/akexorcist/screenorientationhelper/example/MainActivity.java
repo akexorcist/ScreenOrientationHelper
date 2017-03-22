@@ -1,4 +1,4 @@
-package com.akexorcist.screenorientationdetectoractivity;
+package com.akexorcist.screenorientationhelper.example;
 
 import android.os.Bundle;
 
@@ -7,7 +7,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(com.akexorcist.screenorientationdetectoractivity.R.layout.activity_main);
     }
 
     @Override

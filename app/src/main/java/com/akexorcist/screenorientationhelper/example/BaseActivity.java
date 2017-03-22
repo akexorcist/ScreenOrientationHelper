@@ -1,4 +1,4 @@
-package com.akexorcist.screenorientationdetectoractivity;
+package com.akexorcist.screenorientationhelper.example;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
