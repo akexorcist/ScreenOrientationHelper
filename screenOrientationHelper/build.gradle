@@ -13,6 +13,15 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'src/main/AndroidManifest.xml'
+            java.srcDirs = ['src/main/java']
+            res.srcDirs = ['src/main/res']
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -28,3 +37,5 @@ dependencies {
     })
     testCompile 'junit:junit:4.12'
 }
+
+apply from: '../maven_push.gradle'
