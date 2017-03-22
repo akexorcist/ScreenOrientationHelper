@@ -3,9 +3,7 @@
 # ScreenOrientationHelper
 Screen orientation event listener helper for activity
 
-What this library using for?
-===============================
-Use onCofigurationChanged() doesn't works for detected screen orientation. That made configuration change doesn't works when user rotate the screen. So I build this library to solved the problem from screen orientation detection with better solution.
+Use onCofigurationChanged() doesn't works for detected screen orientation. That made configuration change doesn't works when user rotate the screen. So I build this library to solved the problem with better solution.
 
 Download
 ===============================
@@ -24,11 +22,61 @@ Gradle
 compile 'com.akexorcist:screenorientationhelper:1.0.0'
 ```
 
-Usage Documentation
+Usage
 ===============================
-English Version : Unavailable yet
+This library should be implemented on base activity class that you want to detect the screen orientation
+```java
+public class BaseActivity extends AppCompatActivity implements ScreenOrientationHelper.ScreenOrientationChangeListener {
+    private ScreenOrientationHelper helper = new ScreenOrientationHelper(this);
 
-Thai Version : http://www.akexorcist.com/2017/03/best-way-to-detected-screen-orientation-change-event-in-android-activity.html
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        helper.onCreate(savedInstanceState);
+        helper.setScreenOrientationChangeListener(this);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        helper.onStart();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        helper.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        helper.onRestoreInstanceState(savedInstanceState);
+    }
+
+    @Override
+    public void onScreenOrientationChanged(int orientation) {
+
+    }
+
+    ...
+}
+```
+
+Then extends your activity from this base class and override the onScreenOrientationChanged method
+```java
+public class MainActivity extends BaseActivity {
+
+    ...
+
+    @Override
+    public void onScreenOrientationChanged(int orientation) {
+        // Do something when screen orientation changed
+    }
+}
+```
+Done! So easy, right?
+
 
 Licence
 ===========================
