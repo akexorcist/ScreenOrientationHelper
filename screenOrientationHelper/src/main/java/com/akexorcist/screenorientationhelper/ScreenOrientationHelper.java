@@ -2,7 +2,6 @@ package com.akexorcist.screenorientationhelper;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 
 /**
  * Created by Akexorcist on 3/22/2017 AD.
@@ -18,7 +17,7 @@ public class ScreenOrientationHelper {
         this.activity = activity;
     }
 
-    public void onCreate(@Nullable Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         if (savedInstanceState == null) {
             lastOrientation = activity.getResources().getConfiguration().orientation;
         }
