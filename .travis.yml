@@ -8,6 +8,9 @@ android:
     - android-25
     - extra-android-m2repository
     - extra-android-support
+    
+licenses:	
+  - '.+'
 
 notifications:
   email: false
